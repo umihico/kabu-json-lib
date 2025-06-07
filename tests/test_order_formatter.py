@@ -1,21 +1,9 @@
 import unittest
 from datetime import datetime
-import pytz
-from kabu_json_lib.kabu_json_lib import bp, fetch_now, order_to_one_line
+from kabu_json_lib.order_formatter import order_to_one_line
 
 
-class TestKabuJsonLib(unittest.TestCase):
-    def test_bp(self):
-        self.assertEqual(bp(0.05), 500)
-        self.assertEqual(bp(0.01), 100)
-        self.assertEqual(bp(0), 0)
-        self.assertIsNone(bp(None))
-
-    def test_fetch_now(self):
-        now = fetch_now()
-        self.assertIsInstance(now, datetime)
-        self.assertEqual(str(now.tzinfo), str(pytz.timezone("Asia/Tokyo")))
-
+class TestOrderFormatter(unittest.TestCase):
     def test_order_to_one_line(self):
         # テストケース1: 基本的な注文情報
         test_order1 = {
