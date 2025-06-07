@@ -7,7 +7,9 @@
 - fetch_now関数: 現在の日本時間をdatetimeオブジェクトで返します。
 
 ## インストール方法
-（PyPI公開後に記載予定）
+```bash
+pip install kabu-json-lib
+```
 
 ## 使い方
 ```python
@@ -18,4 +20,8 @@ print(bp(None))  # None
 
 now = fetch_now()
 print(now)  # 2023-10-01 12:34:56+09:00
-``` 
+```
+
+## リポジトリ
+- GitHub: https://github.com/umihico/kabu-json-lib
+- PyPI: https://pypi.org/project/kabu-json-lib/
