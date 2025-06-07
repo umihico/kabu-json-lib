@@ -18,6 +18,7 @@ alwaysApply: false
 
 4. テスト実行
    - `python -m pytest tests/` を実行してテストが通ることを確認します。
+   - `python test.py` を実行して、全機能の動作確認を行います。
 
 5. バージョン更新
    - pyproject.tomlのversionを更新します（例: 0.1.0 → 0.1.1）。
