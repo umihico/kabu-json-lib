@@ -19,3 +19,20 @@ def fetch_now():
     タイムゾーンはAsia/Tokyoに設定されています。
     """
     return datetime.now(jst)
+
+
+def order_to_one_line(order):
+    """
+    注文情報を1行の文字列にフォーマットする
+
+    Args:
+        order (dict): convert_order_dataで変換された注文情報
+            - datetime_obj: datetimeオブジェクト
+
+    Returns:
+        str: フォーマットされた1行の文字列
+    """
+    time_str = order["datetime_obj"].strftime("%Y-%m-%d %H:%M:%S")
+    # 金額のフォーマット（カンマ区切り）
+    value_str = f"{int(order['value'].replace(',', '')):,}"
+    return f"""[{order["long_or_short"].ljust(5)}-{order["entry_or_exit"].ljust(5)} ]{order["symbol"]:>5} @{order["price"]:>6} * {order["quantity"]:>5} (¥{value_str:>9}) [{order["order_type"]}] {time_str}"""
