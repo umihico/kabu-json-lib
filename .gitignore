@@ -1,0 +1,21 @@
+# Pythonパッケージ関連
+dist/
+*.egg-info/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 環境変数・direnv関連
+.envrc
+.env
+.direnv/
+
+# OS関連
+.DS_Store
+Thumbs.db
+
+# エディタ関連
+.vscode/
+.idea/
+*.swp
+*.swo 
