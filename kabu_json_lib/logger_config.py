@@ -5,6 +5,7 @@
 logger_config.py
 
 このモジュールは、アプリケーション全体で使用する共通のロギング設定を提供します。
+PythonのロガーはデフォルトでWARNINGレベルです。
 """
 
 import logging
@@ -29,9 +30,11 @@ def setup_logger(name=None):
     if logger.handlers:
         return logger
 
-    # 環境変数からログレベルを取得
-    level_str = os.getenv('LOG_LEVEL', 'INFO').upper()
-    level = getattr(logging, level_str, logging.INFO)
+    # 環境変数からログレベルを取得（なければWARNING）
+    level_str = os.getenv('LOG_LEVEL')
+    default_level = logging.WARNING
+    level = getattr(logging, (level_str or '').upper(),
+                    default_level) if level_str else default_level
 
     # ロガーのレベルを設定
     logger.setLevel(level)

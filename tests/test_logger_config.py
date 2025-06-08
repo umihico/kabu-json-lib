@@ -9,11 +9,11 @@ import uuid
 
 
 def test_setup_logger_default():
-    """デフォルト設定でのロガーテスト"""
+    """デフォルト設定でのロガーテスト（デフォルトはWARNING）"""
     logger_name = f"test_logger_default_{uuid.uuid4()}"
     logger = setup_logger(logger_name)
     assert isinstance(logger, logging.Logger)
-    assert logger.level == logging.INFO
+    assert logger.level == logging.WARNING
     assert len(logger.handlers) == 2
 
 
