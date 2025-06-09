@@ -3,7 +3,7 @@
 システムトレーディングに必要な計算や便利なPythonライブラリをまとめたパッケージです。
 
 ## バージョン
-- 最新バージョン: 0.1.9
+- 最新バージョン: 0.1.11
 - リリース日: 2024-03-21
 
 ## 機能一覧
@@ -11,6 +11,7 @@
 - fetch_now関数: 現在の日本時間をdatetimeオブジェクトで返します。
 - order_to_one_line関数: 注文情報を1行の文字列にフォーマットします（valueはprice×quantityで自動計算されます）。
 - setup_logger関数: アプリケーション全体で使用する共通のロギング設定を提供します。
+- fetch_tradable_codes関数: 取引可能な証券コードのリストを取得します。
 
 ## インストール方法
 ```bash
@@ -19,7 +20,11 @@ pip install kabu-json-lib
 
 ## 使い方
 ```python
-from kabu_json_lib import bp, fetch_now, order_to_one_line, setup_logger
+from kabu_json_lib import bp, fetch_now, order_to_one_line, setup_logger, fetch_tradable_codes
+
+# 取引可能な証券コードの取得
+tradable_codes = fetch_tradable_codes()
+print(tradable_codes)  # ['1234', '5678', '9012', ...]
 
 # ロギングの設定
 logger = setup_logger('my_app')
