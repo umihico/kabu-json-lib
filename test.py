@@ -1,4 +1,4 @@
-from kabu_json_lib import bp, fetch_now, order_to_one_line, fetch_tradable_codes
+from kabu_json_lib import bp, fetch_now, order_to_one_line, fetch_tradable_codes, fetch_symbol_name
 from datetime import datetime
 
 
@@ -96,6 +96,13 @@ def main():
     tradable_codes = fetch_tradable_codes()
     print(f"取得した証券コード数: {len(tradable_codes)}")
     print(f"最初の5つの証券コード: {tradable_codes[:5]}")
+
+    # 銘柄名の取得
+    print("\n銘柄名の取得:")
+    test_codes = ["1305", "9984", "9432"]
+    for code in test_codes:
+        symbol_name = fetch_symbol_name(code)
+        print(f"銘柄コード {code}: {symbol_name}")
 
 
 if __name__ == "__main__":
