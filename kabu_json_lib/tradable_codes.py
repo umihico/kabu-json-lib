@@ -1,8 +1,8 @@
-from functools import cache
+from functools import lru_cache
 import requests
 
 
-@cache
+@lru_cache(maxsize=1)
 def fetch_tradable_codes(cache_session=None):
     """
     取引可能な証券コードのリストを取得します。
