@@ -1,4 +1,4 @@
-from functools import cache
+from functools import lru_cache
 import requests
 
 global_cache_dict = {}  # fetch_all_stocks_が引数問わずcacheできるようにグローバル変数からセッションを渡す
@@ -11,7 +11,7 @@ def fetch_all_stocks(session=None):
     return fetch_all_stocks_()
 
 
-@cache
+@lru_cache(maxsize=1)
 def fetch_all_stocks_():
     """
     全銘柄の情報を取得する関数
